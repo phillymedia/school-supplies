@@ -1,0 +1,37 @@
+<div class="graphicWrapper">
+
+{% for item in data %}
+<div class="card">
+<div class="paper">
+  <div class="side {% if item.image|length %}side-image{% endif %}">
+    <div class="row name">{{item.name}}</div>
+    <div class="row bio">{{item.bio}}</div>
+  </div>
+  {% if item.image|length %}
+  <div class="side image">
+    <img src="{{item.image}}">
+    <div class="meta">{{item.meta}}</div>
+  </div>
+  {% endif %}
+
+</div>
+<div class="text {% if item.image|length %}spacer{% endif %}">
+    <div class="row amount"><p><span>AMOUNT SPENT PER SCHOOL YEAR </span>{{item.amount}}</p></div>
+    <div class="row what"><p><span>WHAT DOES {% if item.gender == "m" %} HE {% endif %} {% if item.gender == "f" %} SHE {% endif %} SPEND ON? </span>{{item.what}}</p></div>
+    {% if item.family|length %}
+    <div class="row family"><p><span>DO FAMILIES SEND IN SUPPLIES? </span>{{item.family}}</p></div>
+    {% endif %}
+    {% if item.creative|length %}
+    <div class="row creative"><p><span>HOW DOES {% if item.gender == "m" %} HE {% endif %} {% if item.gender == "f" %} SHE {% endif %} GET CREATIVE? </span>{{item.creative}}</p></div>
+    {% endif %}
+    {% if item.job|length %}
+    <div class="row job"><p><span>IS IT JUST PART OF THE JOB? </span>{{item.job}}</p></div>
+    {% endif %}
+    {% if item.tax|length %}
+    <div class="row tax"><p><span>ON THE POSSIBLE TAX-CREDIT LOSS? </span>{{item.tax}}</p></div>
+    {% endif %}
+</div>
+</div>
+
+{% endfor %}
+</div>
